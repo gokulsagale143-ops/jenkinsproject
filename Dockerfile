@@ -12,7 +12,7 @@ ENV LOG_DIR=/usr/local/apache2/logs
 RUN apk update && apk upgrade && apk add --no-cache bash tzdata
 RUN cp /usr/share/zoneinfo/UTC /etc/localtime && echo "UTC" > /etc/timezone
 
-COPY ./public_html/ ${APP_HOME}/
+COPY . ${APP_HOME}/
 
 RUN chown -R daemon:daemon ${APP_HOME} && \
     chmod -R 755 ${APP_HOME}
